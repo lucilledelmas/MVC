@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lucilledelmas
- * Date: 10/05/2016
- * Time: 11:44
- */
 namespace Controller;
 
-class pageController {
+use Model\pageRepository;
+
+class pageController extends Controller{
 
     private $PDO;
 
