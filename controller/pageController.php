@@ -3,13 +3,11 @@ namespace Controller;
 
 use Model\pageRepository;
 
-class pageController extends Controller{
-
-    private $PDO;
-
+class pageController
+{
     public function __construct(\PDO $PDO)
     {
-        $this->PDO = $PDO;
+        $this->repository = new pageRepository($PDO);
     }
 
     public function ajoutAction()
@@ -39,6 +37,6 @@ class pageController extends Controller{
 
     public function displayAction()
     {
-
+        include "../view/page-display.php";
     }
 }

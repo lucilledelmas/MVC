@@ -3,8 +3,8 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Controller\\": "/controller",
-            "Model\\": "/model"
+            "Controller\\": "controller/",
+            "Model\\": "model/"
         }
     }
 }

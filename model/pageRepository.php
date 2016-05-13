@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lucilledelmas
- * Date: 10/05/2016
- * Time: 11:50
- */
 namespace Model;
 
 class pageRepository {
@@ -16,50 +10,42 @@ class pageRepository {
         $this->PDO = $PDO;
     }
 
-    public function lister()
+    public function lister($id = null)
     {
-
+        return array[];
     }
 
-    public function modifier()
+    public function modifier(array $data)
     {
-
+        return true;
     }
 
-    public function supprimer()
+    public function supprimer(int $id)
     {
-
+        return true;
     }
 
-    public function inserer()
+    public function inserer(array $data)
     {
-
+        return 1;
     }
 
 
-    public function get()
+    public function getBySlug($slug)
     {
-        $sql = "SELECT
-    `id`,
-    `slug`,
-    `h1`,
-    `body`,
-    `title`,
-    `img`,
-    `span_text`,
-    `span_class`
-FROM
-  `page`
-WHERE
-  1
-";
-        $stmt = $this->pdo->prepare($sql);
+        $sql ="SELECT
+                    `id`,
+                    `slug`,
+                    `body`,
+                    `title`
+                FROM
+                    `page`
+                WHERE
+                    `slug` = :slug
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
-        $data = [];
-        while ($row = $this->fetchObject($stmt)) {
-            $data[] = $row;
-        }
-
-        return $data;
+        return $stmt->fetchObject();
     }
 }
