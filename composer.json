@@ -1,0 +1,10 @@
+{
+    "name": "lucille/mvc",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "/controller",
+            "Model\\": "/model"
+        }
+    }
+}
